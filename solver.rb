@@ -1,12 +1,13 @@
 class Solver
-  def self.factorial(n)
-    raise ArgumentError, 'Input must be a non-negative integer' if n < 0
-    return 1 if n == 0
+  def self.factorial(number)
+    raise ArgumentError, 'Input must be a non-negative integer' if number.negative?
+    return 1 if number.zero?
 
     result = 1
-    (1..n).each do |i|
+    (1..number).each do |i|
       result *= i
     end
+
     result
   end
 
@@ -14,15 +15,15 @@ class Solver
     word.reverse
   end
 
-  def self.fizzbuzz(n)
-    if (n % 3 == 0) && (n % 5 == 0)
+  def self.fizzbuzz(input)
+    if (input % 3).zero? && (input % 5).zero?
       'fizzbuzz'
-    elsif n % 3 == 0
+    elsif (input % 3).zero?
       'fizz'
-    elsif n % 5 == 0
+    elsif (input % 5).zero?
       'buzz'
     else
-      n.to_s
+      input.to_s
     end
   end
 end
